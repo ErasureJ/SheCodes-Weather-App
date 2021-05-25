@@ -36,41 +36,42 @@ function changeCity(event){
 function changeToC(event){
 event.preventDefault();
   let tempElement = document.querySelector("#temp");
- let temp = tempElement.innerHTML;
-temp = Number(temp);
- tempElement.innerHTML = Math.round((temp - 32) / 1.8);
-
+temp = Number(celsiusTemp);
+ tempElement.innerHTML = temp;
 }
 
 function changeToF(event){
 event.preventDefault();
   let tempElement = document.querySelector("#temp");
  let temp = tempElement.innerHTML;
-temp = Number(temp);
+temp = Number(celsiusTemp);
 tempElement.innerHTML = Math.round(temp * 1.8 + 32);
 }
 
 function showWeather(response) {
-  let temp = response.data.main.temp;
-  temp = Math.round(temp);
- let wind = response.data.wind.speed;
+  celsiusTemp = Math.round(response.data.main.temp);
+  let wind = response.data.wind.speed;
    wind = Math.round(wind);
-   console.log(wind);
-  // let precipitation = response.data.wind.speed;
-    //precipitation = Math.round(precipitation);
-
+   console.log(response.data);
+  let humidity = response.data.main.humidity;
+  let description = response.data.weather[0].main;
   let tempElement = document.querySelector("#temp");
-  tempElement.innerHTML = temp;
+  tempElement.innerHTML = celsiusTemp;
   console.log(response.data);
  let windElement = document.querySelector("#wind");
 windElement.innerHTML = wind;
 let newCity = response.data.name;
   let displayedCity = document.querySelector("#entered-city");
-  displayedCity.innerHTML = `Currently: <strong>${newCity}</strong>`;
+  displayedCity.innerHTML = `<strong>${newCity}</strong>`;
 
- // let precipitationElement = document.querySelector("#precipitation");
-//precipitationElement.innerHTML = precipitation;
+let weatherIcon = document.querySelector("#weather-icon");
+weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+let humidityElement = document.querySelector("#humidity");
+humidityElement.innerHTML = humidity;
+let descriptionElement = document.querySelector("#description");
+descriptionElement.innerHTML = description;
 }
+
 function handlePosition(position) {
   let latitude = position.coords.latitude;
   console.log(latitude);
@@ -88,6 +89,8 @@ function showCurrentLocationTemp(event){
 navigator.geolocation.getCurrentPosition(handlePosition);
 }
 
+let celsiusTemp = null;
+
 let currentDayTime = document.querySelector("h3");
 currentDayTime.innerHTML = formatDate(new Date());
 console.log(formatDate(new Date()));
@@ -103,3 +106,4 @@ tempUnitF.addEventListener("click", changeToF);
 
 let currentLocationButton = document.querySelector("#current-loc-button");
 currentLocationButton.addEventListener("click", showCurrentLocationTemp);
+

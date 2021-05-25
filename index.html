@@ -12,13 +12,14 @@
 </head>
 <body>
 <div class="container">
+    <div id="weather-app">
 <h1>
     What's the weather?
 </h1>
-<h3 id="current-day-time">Current time and day</h3>
+<h3 id="current-day-time"></h3>
 <form id="city-search-form">
     <div class="row">
-        <div class="col-6">
+        <div class="col-10">
     <div class="mb-3">
         <input type="text" id="new-city" class="form-control" placeholder="Enter city name" autofocus>
     </div>
@@ -30,32 +31,56 @@
 </form>
 <br>
 <div class="row">
-    <div class="col-4">
-<span id="entered-city">Currently: London</span>
+    <div class="col-3">
+        <span ><img id="weather-icon" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fclipart-library.com%2Fimages_k%2Fquestion-marks-transparent-background%2Fquestion-marks-transparent-background-12.png&f=1&nofb=1" height="50px"></span>
+    </div>
+    <div class="col-3">
+<span id="entered-city"> </span>
+</div>    
+    </div>
+<div class="row">
+<div class="col-2">
+    <span>Currently: </span>
 </div>
 <div class="col-2">
-<span id="temp">14</span>  <a id="c" href="#">°C</a>|<a id="f" href="#">°F</a>
+    <span id="description"> </span>
+</div>
+    <div class="col-2">
+        <span> </span>
+    </div>
+<div class="col-2">
+  
+        <span>Humidity</span>
+    </div>
+    <div class="col-2">
+        <span id = "humidity"> </span><span>%</span>
+        </div> 
+</div>
+<br>
+    
+    <div class="row">
+    <div class="col-2"> 
+        <span>Temp. </span>
+</div>
+
+<div class="col-2">
+<span> </span><span id="temp"> </span><a id="c" href="#">°C</a>|<a id="f" href="#">°F</a>
+
+</div>
+    <div class="col-2">
+        <span> </span>
+    </div>
+    <div class="col-2">
+        <span>Wind</span>
+    </div>
+
+    <div class="col-2">
+        <span id = wind></span> <span>m/s</span>
+    </div>
 
 </div>
 </div>
 <br>
-<div class="row">
-    <div class="col-4">
-        <span>Precipitation</span>
-    </div>
-    <div class="col-2">
-        <span id = precipitation>20</span><span>%</span>
-    </div>
-</div>
-<br>
-<div class="row">
-    <div class="col-4">
-        <span>Wind</span>
-    </div>
-    <div class="col-2">
-        <span id = wind>10</span> <span>m/s</span>
-    </div>
-</div>
 <p><a href="https://github.com/ErasureJ/SheCodes-Weather-App" target="_blank">Open-source code </a>by Erika Jankauskaite</p>
 </div>
 <script src="src/index.js"></script>
