@@ -2,17 +2,17 @@ h1 {
   padding: 10px;
 }
 
-img {
+#weather-icon {
   display: block;
   margin: 0 auto;
 }
 
 #entered-city {
-  font-size: larger;
+  font-size: calc(1.3rem + 0.6vw);
 }
 
 #weather-app {
-  max-width: 550px;
+  max-width: 500px;
   margin: 30 px auto;
 
   padding: 20px 10px 20px 10px;

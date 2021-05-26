@@ -16,61 +16,72 @@
 <h1>
     What's the weather?
 </h1>
-<h3 id="current-day-time"></h3>
+
 <form id="city-search-form">
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
     <div class="mb-3">
         <input type="text" id="new-city" class="form-control" placeholder="Enter city name" autofocus>
     </div>
     </div>
     </div>
-    <button type="submit" class="btn btn-info">Search</button>
-    <button type="click" id = current-loc-button class="btn btn-primary">Current location</button>
+        <div class="row">
+            <div class="col-4">
+    <button type="submit" class="btn btn-info">Search</button></div>
+    <div class="col-4"> </div>
+    <div class="col-4">
+    <button type="click" id = current-loc-button class="btn btn-primary">Current location</button></div>
 
 </form>
+<br><br>
+<h3 id="current-day-time"></h3>
 <br>
 <div class="row">
-    <div class="col-3">
-        <span ><img id="weather-icon" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fclipart-library.com%2Fimages_k%2Fquestion-marks-transparent-background%2Fquestion-marks-transparent-background-12.png&f=1&nofb=1" height="50px"></span>
-    </div>
-    <div class="col-3">
+    
+    <div class="col-4">
 <span id="entered-city"> </span>
 </div>    
+    <div class="col-2">
+        <span> </span>
     </div>
+    <div class="col-4">
+        <span ><img id="weather-icon" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fclipart-library.com%2Fimages_k%2Fquestion-marks-transparent-background%2Fquestion-marks-transparent-background-12.png&f=1&nofb=1" height="100px"></span>
+    </div>
+</div>
+    <br><br><br>
 <div class="row">
-<div class="col-2">
+<div class="col-3">
     <span>Currently: </span>
 </div>
 <div class="col-2">
     <span id="description"> </span>
 </div>
-    <div class="col-2">
+    <div class="col-1">
         <span> </span>
     </div>
-<div class="col-2">
+<div class="col-3">
   
         <span>Humidity</span>
     </div>
     <div class="col-2">
-        <span id = "humidity"> </span><span>%</span>
+        <span id = "humidity"> </span><span> %</span>
         </div> 
 </div>
 <br>
     
     <div class="row">
-    <div class="col-2"> 
+    <div class="col-3"> 
         <span>Temp. </span>
 </div>
 
 <div class="col-2">
-<span> </span><span id="temp"> °C</span>
+<span id="temp"> </span><span> °C</span>
 
 </div>
-    <div class="col-2">
+    <div class="col-1">
         <span> </span>
     </div>
-    <div class="col-2">
+    <div class="col-3">
         <span>Wind</span>
     </div>
 
@@ -84,8 +95,9 @@
 
 </div>
 <br>
-<p><a href="https://github.com/ErasureJ/SheCodes-Weather-App" target="_blank">Open-source code </a>by Erika Jankauskaite</p>
 </div>
+<p><a href="https://github.com/ErasureJ/SheCodes-Weather-App" target="_blank">Open-source code </a>by Erika Jankauskaite</p>
+
 <script src="src/index.js"></script>
 </body>
 </html>
