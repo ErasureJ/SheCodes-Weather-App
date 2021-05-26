@@ -1,5 +1,6 @@
 body {
-  font-family: "Mate SC", serif;
+  font-family: "Brygada 1918", serif;
+  font-weight: bolder;
 }
 h1 {
   padding: 10px;
@@ -7,6 +8,8 @@ h1 {
 
 .container {
   position: relative;
+  max-width: 550px;
+  max-height: 700px;
 }
 
 .container:before {
@@ -26,7 +29,6 @@ h1 {
 
 .whole-app {
   position: relative;
-  max-width: 500px;
 }
 
 #weather-icon {
