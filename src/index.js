@@ -28,28 +28,14 @@ function changeCity(event){
 
  
   let apiKey = "97f3b3b2df521867b9186f5dc6f41a1b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/
+  weather?q=${newCity}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 
 }
 
-function changeToC(event){
-event.preventDefault();
-  let tempElement = document.querySelector("#temp");
-temp = Number(celsiusTemp);
- tempElement.innerHTML = temp;
-}
-
-function changeToF(event){
-event.preventDefault();
-  let tempElement = document.querySelector("#temp");
- let temp = tempElement.innerHTML;
-temp = Number(celsiusTemp);
-tempElement.innerHTML = Math.round(temp * 1.8 + 32);
-}
-
 function showWeather(response) {
-  celsiusTemp = Math.round(response.data.main.temp);
+  tempreture = Math.round(response.data.main.temp);
   let wind = response.data.wind.speed;
    wind = Math.round(wind);
    console.log(response.data);
@@ -65,7 +51,8 @@ let newCity = response.data.name;
   displayedCity.innerHTML = `<strong>${newCity}</strong>`;
 
 let weatherIcon = document.querySelector("#weather-icon");
-weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/
+${response.data.weather[0].icon}@2x.png`);
 let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = humidity;
 let descriptionElement = document.querySelector("#description");
@@ -81,7 +68,8 @@ function handlePosition(position) {
   displayedCity.innerHTML = `<strong>Current location<strong>`;
 
   let apiKey = "97f3b3b2df521867b9186f5dc6f41a1b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?
+  lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -89,7 +77,6 @@ function showCurrentLocationTemp(event){
 navigator.geolocation.getCurrentPosition(handlePosition);
 }
 
-let celsiusTemp = null;
 
 let currentDayTime = document.querySelector("h3");
 currentDayTime.innerHTML = formatDate(new Date());
@@ -97,12 +84,6 @@ console.log(formatDate(new Date()));
 
 let enteredCity = document.querySelector("#city-search-form");
 enteredCity.addEventListener("submit", changeCity);
-
-let tempUnitC = document.querySelector("#c");
-tempUnitC.addEventListener("click", changeToC);
-
-let tempUnitF = document.querySelector("#f");
-tempUnitF.addEventListener("click", changeToF);
 
 let currentLocationButton = document.querySelector("#current-loc-button");
 currentLocationButton.addEventListener("click", showCurrentLocationTemp);
