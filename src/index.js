@@ -101,6 +101,7 @@ let descriptionElement = document.querySelector("#description");
 descriptionElement.innerHTML = description;
 
   getForecast(response.data.coord);
+
 }
 
 function handlePosition(position) {
