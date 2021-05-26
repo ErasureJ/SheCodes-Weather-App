@@ -27,10 +27,13 @@ function changeCity(event){
   console.log(newCity);
 
  
-  let apiKey = "97f3b3b2df521867b9186f5dc6f41a1b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${newCity}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
+}
 
+function getForecast(coords){
+let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&exclude={minutely}&appid=${apiKey}`;
+console.log(apiUrl);
 }
 
 function showWeather(response) {
@@ -55,6 +58,8 @@ let humidityElement = document.querySelector("#humidity");
 humidityElement.innerHTML = humidity;
 let descriptionElement = document.querySelector("#description");
 descriptionElement.innerHTML = description;
+
+  getForecast(response.data.coord);
 }
 
 function handlePosition(position) {
@@ -73,6 +78,8 @@ function handlePosition(position) {
 function showCurrentLocationTemp(event){
 navigator.geolocation.getCurrentPosition(handlePosition);
 }
+
+  let apiKey = "97f3b3b2df521867b9186f5dc6f41a1b";
 
 
 let currentDayTime = document.querySelector("h3");
